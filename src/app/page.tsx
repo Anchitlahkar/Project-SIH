@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from "next/image";
 import Cards from './_components/cards'
 
 const navigation = [
@@ -12,8 +14,9 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
-export default function main() {
+export default function Main() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const Router = useRouter();
 
   return (
     <div className="bg-gray-200">
@@ -25,9 +28,11 @@ export default function main() {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                alt=""
+              <Image
+                alt="Tailwind CSS logo"
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                width={32}
+                height={32}
                 className="h-8 w-auto"
               />
             </a>
@@ -50,25 +55,29 @@ export default function main() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/auth/login" className="text-sm/6 font-semibold text-white">
+            <a id="navBtn" onClick={()=>{Router.push("/auth/login")}} className="text-sm/6 font-semibold text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
 
 
-        
+
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
           <div className="fixed inset-0 z-50" />
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
-                  alt=""
+
+                <Image
+                  alt="Tailwind CSS logo"
                   src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                  width={32}
+                  height={32}
                   className="h-8 w-auto"
                 />
+                
               </a>
               <button
                 type="button"
@@ -94,7 +103,8 @@ export default function main() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="/auth/login"
+                    id="navBtn"
+                    onClick={()=>{Router.push("/auth/login")}}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
                   >
                     Log in
@@ -131,7 +141,7 @@ export default function main() {
           </div>
           <div className="text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-pretty text-gray-800 sm:text-7xl">
-              Data to enrich your online business
+              Main Landing Page
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet

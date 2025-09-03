@@ -1,3 +1,4 @@
+import "../globals.css"
 import { AuthProvider } from "../context/auth";
 import ProtectedRoute from "../context/ProtectedRoute"
 import type { Metadata } from "next";
