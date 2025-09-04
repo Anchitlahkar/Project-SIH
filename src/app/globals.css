@@ -33,3 +33,6 @@ body {
   padding-left: 8;
   padding-right: 8;
 }
+#navBtn:hover{
+  background-color: #a66ece;
+}
