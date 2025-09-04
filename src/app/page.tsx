@@ -35,7 +35,7 @@ export default function Main() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-pretty text-gray-800 sm:text-7xl">
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-800 sm:text-7xl">
               Main Landing Page
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">

@@ -30,7 +30,7 @@ export default function LoginPage() {
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           </div>
           <div className="text-center">
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-pretty text-gray-800 sm:text-7xl">
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-800 sm:text-7xl">
               Official User Page
             </h1>
           </div>

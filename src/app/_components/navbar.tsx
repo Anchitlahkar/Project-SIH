@@ -36,18 +36,18 @@ export function NavigationBar({ role }: NavigationBarProps) {
 
     // Navigation links can change depending on role
     const baseNavigation = [
-        { name: 'Home', href: '/' },
-        { name: 'Features', href: '/features' },
+        { name: 'Home', href: '#' },
+        { name: 'Features', href: '#' },
     ]
 
     const organisationNav = [
-        { name: 'Dashboard', href: '/organisation/dashboard' },
-        { name: 'Reports', href: '/organisation/reports' },
+        { name: 'Dashboard', href: '#' },
+        { name: 'Reports', href: '#' },
     ]
 
     const officialNav = [
-        { name: 'Admin Panel', href: '/official/admin' },
-        { name: 'Manage Users', href: '/official/users' },
+        { name: 'Admin Panel', href: '#' },
+        { name: 'Manage Users', href: '#' },
     ]
 
     const navigation =
