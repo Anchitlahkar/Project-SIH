@@ -4,13 +4,14 @@ import { FirebaseError } from "firebase/app";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { login } from "../../../../utils/firebase";
+import { NavigationBar } from "@/app/_components/navbar";
 import Image from "next/image";
 import Swal from "sweetalert2"
 
 
 export default function LoginPage() {
     const router = useRouter();
-
+    const [darkMode, setDarkMode] = useState(false);
     const [id, setid] = useState("")
     const [role, setRole] = useState("");
     const [password, setPassword] = useState("");
@@ -70,18 +71,17 @@ export default function LoginPage() {
 
 
     return (
-        <>
+        <div className={`min-h-screen transition-colors ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+            {/* Navigation */}
+            <header className="sticky inset-x-0 top-0 z-50">
+                <NavigationBar
+                    role="Public"
+                    onDarkModeChange={(value) => setDarkMode(value)}
+                />
+            </header>
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <Image
-                        alt="Tailwind CSS logo"
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                        width={32}
-                        height={32}
-                        className="h-8 w-auto"
-                        onClick={() => { router.push("/") }}
-                    />
-                    <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Login</h2>
+                    <h2 className={`mt-10 text-center text-2xl/9 font-bold tracking-tight ${darkMode ? 'text-white/90' : 'text-gray-900/90'}`}>Login</h2>
                 </div>
 
 
@@ -90,7 +90,7 @@ export default function LoginPage() {
 
                     <form action="#" method="POST" className="space-y-6" onSubmit={onSubmit}>
                         <div>
-                            <label htmlFor="email" className="block text-sm/6 font-medium text-gray-100">
+                            <label htmlFor="email" className={`block text-sm/6 font-medium ${darkMode ? 'text-white/90' : 'text-gray-900/90'}`}>
                                 Your Role:
                             </label>
                             <div className="mt-2">
@@ -100,7 +100,9 @@ export default function LoginPage() {
                                     required
                                     value={role}
                                     onChange={(e) => setRole(e.target.value)}
-                                    className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                                    className={`block w-full rounded-md bg-white/5 px-3 py-1.5 text-base 
+                                            ${darkMode ? 'text-white/90 border-l-black placeholder:text-gray-50' : 'text-gray-900/90 placeholder:text-gray-500'} 
+                                                focus:ring-2 focus:ring-indigo-500 focus:outline-none sm:text-sm`}
                                 >
                                     <option value="" disabled>
                                         Select Login method
@@ -112,7 +114,7 @@ export default function LoginPage() {
                         </div>
 
                         <div>
-                            <label htmlFor="id" className="block text-sm/6 font-medium text-gray-100">
+                            <label htmlFor="id" className={`block text-sm/6 font-medium ${darkMode ? 'text-white/90' : 'text-gray-900/90'}`}>
                                 ID:
                             </label>
                             <div className="mt-2">
@@ -121,7 +123,10 @@ export default function LoginPage() {
                                     name="id"
                                     type="id"
                                     required
-                                    className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                                    className={`block w-full rounded-md bg-white/5 px-3 py-1.5 text-base 
+                                            ${darkMode ? 'text-white/90 border-l-black placeholder:text-gray-50' : 'text-gray-900/90 placeholder:text-gray-500'} 
+                                                focus:ring-2 focus:ring-indigo-500 focus:outline-none sm:text-sm`}
+
                                     onChange={(e) => setid(e.target.value)}
                                 />
                             </div>
@@ -129,11 +134,11 @@ export default function LoginPage() {
 
                         <div>
                             <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="block text-sm/6 font-medium text-gray-100">
+                                <label htmlFor="password" className={`block text-sm/6 font-medium ${darkMode ? 'text-white/90' : 'text-gray-900/90'}`}>
                                     Password
                                 </label>
                                 <div className="text-sm">
-                                    <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
+                                    <a href="#" className={`font-semibold text-indigo-400 hover:text-indigo-300`}>
                                         Forgot password?
                                     </a>
                                 </div>
@@ -146,7 +151,9 @@ export default function LoginPage() {
                                     required
                                     onChange={(e) => setPassword(e.target.value)}
                                     autoComplete="current-password"
-                                    className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                                    className={`block w-full rounded-md bg-white/5 px-3 py-1.5 text-base 
+                                            ${darkMode ? 'text-white/90 border-l-black placeholder:text-gray-50' : 'text-gray-900/90 placeholder:text-gray-500'} 
+                                                focus:ring-2 focus:ring-indigo-500 focus:outline-none sm:text-sm`}
                                 />
                                 <button
                                     type="button"
@@ -175,6 +182,6 @@ export default function LoginPage() {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }

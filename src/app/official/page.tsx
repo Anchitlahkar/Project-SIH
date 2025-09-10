@@ -1,16 +1,22 @@
 'use client'
 import "../globals.css"
-import {NavigationBar} from "../_components/navbar"
+import { useState } from "react";
+import { NavigationBar } from "../_components/navbar"
 import Charts from "../_components/charts"
 
 
 
 export default function LoginPage() {
 
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="bg-gray-200">
-      <header className="absolute inset-x-0 top-0 z-50">
-        <NavigationBar role="Official"></NavigationBar>
+    <div className={`min-h-screen transition-colors ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <header className="sticky inset-x-0 top-0 z-50">
+        <NavigationBar
+          role="Official"
+          onDarkModeChange={(value) => setDarkMode(value)}
+        />
       </header>
 
       <div className="relative isolate px-6 pt-14 lg:px-8">

@@ -1,14 +1,21 @@
 'use client'
 import "../globals.css"
-
-import {NavigationBar} from "../_components/navbar"
+import { useState } from "react";
+import { NavigationBar } from "../_components/navbar"
 
 export default function OrganizationPage() {
 
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="bg-gray-200">
+    <div className={`min-h-screen transition-colors ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       <header className="absolute inset-x-0 top-0 z-50">
-        <NavigationBar role={"Organisation"}></NavigationBar>
+        <NavigationBar
+          role={"Organisation"}
+          onDarkModeChange={(value) => setDarkMode(value)}
+        >
+
+        </NavigationBar>
       </header>
 
       <div className="relative isolate px-6 pt-14 lg:px-8">

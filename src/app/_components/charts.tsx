@@ -42,7 +42,7 @@ export default function Charts() {
         datasets: [
             {
                 label: 'Sample Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40, 56, 68, 42, 56, 74],
+                data: [65, 59, 80, 81, 56, 55, 60, 56, 68, 42, 56, 74],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 backgroundColor: 'rgba(75,192,192,0.4)',
@@ -86,6 +86,7 @@ export default function Charts() {
                 </p>
                 <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-2 lg:grid-rows-2">
                     <div className="relative lg:row-span-1">
+
                         <div className="space-y-8">
                             {/* Doughnut Chart */}
                             <div className="bg-white p-4 rounded-xl shadow">
@@ -100,9 +101,8 @@ export default function Charts() {
                         <div className="bg-white p-4 rounded-xl shadow">
                             <Line options={options} data={data} />
                         </div>
+
                     </div>
-
-
                 </div>
             </div>
         </div>
